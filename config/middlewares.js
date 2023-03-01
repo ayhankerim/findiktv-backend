@@ -19,6 +19,7 @@ module.exports = ({ env }) => [
               "s3.amazonaws.com",
               "www.google.com.tr",
               "www.google.com",
+              "www.google-analytics.com",
             ],
             'media-src': ["'self'", 'data:', 'blob:', 'imagedelivery.net'],
           },
