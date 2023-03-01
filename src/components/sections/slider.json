@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_sections_sliders",
+  "info": {
+    "displayName": "Slider",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SlideLimit": {
+      "type": "integer",
+      "default": 1,
+      "max": 20,
+      "required": true
+    },
+    "SliderOffset": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "SideArticleLimit": {
+      "type": "integer",
+      "default": 2,
+      "required": true,
+      "max": 3,
+      "min": 1
+    },
+    "SideArticleOffset": {
+      "type": "integer",
+      "min": 0,
+      "required": true,
+      "default": 0
+    },
+    "FeaturedOnly": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

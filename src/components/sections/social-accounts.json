@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_social_accounts",
+  "info": {
+    "displayName": "SocialAccounts"
+  },
+  "options": {},
+  "attributes": {
+    "Account": {
+      "type": "enumeration",
+      "enum": [
+        "Facebook",
+        "Twitter",
+        "LinkedIn",
+        "Telegram"
+      ],
+      "required": true
+    },
+    "Link": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "regex": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    }
+  }
+}

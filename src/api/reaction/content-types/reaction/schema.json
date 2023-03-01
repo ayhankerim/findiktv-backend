@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reactions",
+  "info": {
+    "singularName": "reaction",
+    "pluralName": "reactions",
+    "displayName": "Reaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "reactions"
+    },
+    "Value": {
+      "type": "integer",
+      "required": true,
+      "max": 1,
+      "min": -1
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "reactions"
+    },
+    "ReactionType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::reaction-type.reaction-type"
+    }
+  }
+}

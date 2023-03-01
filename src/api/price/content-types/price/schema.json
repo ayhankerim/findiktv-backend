@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prices",
+  "info": {
+    "singularName": "price",
+    "pluralName": "prices",
+    "displayName": "Price",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": false
+    },
+    "min": {
+      "type": "decimal",
+      "required": true
+    },
+    "max": {
+      "type": "decimal",
+      "required": true
+    },
+    "average": {
+      "type": "decimal",
+      "required": true
+    },
+    "volume": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "unit": {
+      "type": "enumeration",
+      "enum": [
+        "kg",
+        "ton",
+        "liter",
+        "piece"
+      ],
+      "default": "kg"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "prices"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "prices"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "quality": {
+      "type": "enumeration",
+      "enum": [
+        "Sivri",
+        "Levant",
+        "Giresun",
+        "Organik"
+      ],
+      "default": "Levant"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "stockmarket",
+        "openmarket",
+        "tmo"
+      ],
+      "default": "stockmarket",
+      "required": false
+    },
+    "efficiency": {
+      "type": "decimal",
+      "default": 50,
+      "min": 0
+    },
+    "ip": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "approvalStatus": {
+      "type": "enumeration",
+      "enum": [
+        "approved",
+        "waiting",
+        "ignored",
+        "spam",
+        "calculation"
+      ],
+      "default": "approved"
+    }
+  }
+}

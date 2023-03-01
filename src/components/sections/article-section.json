@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_article_sections",
+  "info": {
+    "displayName": "ArticleSection"
+  },
+  "options": {},
+  "attributes": {
+    "ArticleLimit": {
+      "type": "integer",
+      "default": 1,
+      "min": 1,
+      "required": true
+    },
+    "ArticleOffset": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "FeaturedOnly": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "SectionTitle": {
+      "type": "string"
+    }
+  }
+}

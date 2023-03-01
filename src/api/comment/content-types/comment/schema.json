@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "singularName": "comment",
+    "pluralName": "comments",
+    "displayName": "Comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true,
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "blockedThread": {
+      "type": "boolean",
+      "default": false
+    },
+    "removed": {
+      "type": "boolean",
+      "default": false
+    },
+    "threadOf": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::comment.comment"
+    },
+    "like": {
+      "type": "integer",
+      "default": 0
+    },
+    "dislike": {
+      "type": "integer",
+      "default": 0
+    },
+    "approvalStatus": {
+      "type": "enumeration",
+      "enum": [
+        "approved",
+        "waiting",
+        "ignored",
+        "spam"
+      ],
+      "default": "approved"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "comments"
+    },
+    "ip": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "reply_to": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::comment.comment"
+    },
+    "flag": {
+      "type": "integer",
+      "default": 0
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "comments"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "comments"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "comments"
+    }
+  }
+}
