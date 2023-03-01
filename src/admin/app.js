@@ -1,6 +1,6 @@
-import AuthLogo from './extensions/asko_logo.png';
-import MenuLogo from './extensions/asko-favicon.png';
-import favicon from './extensions/asko-favicon.png';
+import AuthLogo from './extensions/logo-findiktv.png';
+import MenuLogo from './extensions/findiktv-icon.svg';
+import favicon from './extensions/findiktv-icon.svg';
 
 export default {
   config: {
@@ -13,7 +13,7 @@ export default {
       favicon: favicon,
     },
     // Add a new locale, other than 'en'
-    locales: ['tr', 'fr'],
+    locales: ['tr'],
     // Replace the Strapi logo in the main navigation
     menu: {
       logo: MenuLogo,
