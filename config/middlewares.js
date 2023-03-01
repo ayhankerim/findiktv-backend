@@ -7,7 +7,7 @@ module.exports = ({ env }) => [
           useDefaults: true,
           directives: {
             'connect-src': ["'self'", 'https:'],
-            "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "editor.unlayer.com", "static.cloudflareinsights.com", "www.googletagmanager.com"],
+            "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "editor.unlayer.com", "static.cloudflareinsights.com", "www.googletagmanager.com", "www.google-analytics.com"],
             "frame-src": ["'self'", "editor.unlayer.com"],
             "img-src": [
               "'self'",
@@ -17,6 +17,7 @@ module.exports = ({ env }) => [
               "cdn.jsdelivr.net",
               "strapi.io",
               "s3.amazonaws.com",
+              "www.google.com.tr",
             ],
             'media-src': ["'self'", 'data:', 'blob:', 'imagedelivery.net'],
           },
