@@ -18,6 +18,7 @@ module.exports = ({ env }) => [
               "strapi.io",
               "s3.amazonaws.com",
               "www.google.com.tr",
+              "www.google.com",
             ],
             'media-src': ["'self'", 'data:', 'blob:', 'imagedelivery.net'],
           },
