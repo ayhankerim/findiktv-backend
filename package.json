@@ -12,7 +12,8 @@
     "lodash.set": "^4.3.2",
     "mysql": "2.18.1",
     "pg": "^8.9.0",
-    "strapi-plugin-email-designer": "^2.1.1"
+    "strapi-plugin-email-designer": "^2.1.1",
+    "strapi-provider-upload-cloudflare": "^4.1.0"
   },
   "name": "backend",
   "private": true,

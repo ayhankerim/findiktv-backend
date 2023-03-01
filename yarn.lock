@@ -3494,6 +3494,13 @@ axios@1.2.2:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
+axios@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.24.0.tgz#804e6fa1e4b9c5288501dd9dff56a7a0940d20d6"
+  integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
+  dependencies:
+    follow-redirects "^1.14.4"
+
 babel-loader@8.2.5:
   version "8.2.5"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.5.tgz#d45f585e654d5a5d90f5350a779d7647c5ed512e"
@@ -5619,7 +5626,7 @@ fn.name@1.x.x:
   resolved "https://registry.yarnpkg.com/fn.name/-/fn.name-1.1.0.tgz#26cad8017967aea8731bc42961d04a3d5988accc"
   integrity sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw==
 
-follow-redirects@^1.0.0, follow-redirects@^1.15.0:
+follow-redirects@^1.0.0, follow-redirects@^1.14.4, follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -10302,6 +10309,14 @@ strapi-plugin-email-designer@^2.1.1:
     react-github-btn "^1.4.0"
     react-syntax-highlighter "^15.5.0"
     striptags "^3.2.0"
+
+strapi-provider-upload-cloudflare@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/strapi-provider-upload-cloudflare/-/strapi-provider-upload-cloudflare-4.1.0.tgz#687b68c42683b3e6a54707da1fe4c4688fbb1b73"
+  integrity sha512-B6ippQcl4/F9yCudp7MC7ZW9xjlFjMmFLLogq+2go8o6fWQIWaCQCkQi9w9uh05NITh/QvvzEqVfZF5b2Imtyw==
+  dependencies:
+    axios "^0.24.0"
+    form-data "^4.0.0"
 
 stream-browserify@^3.0.0:
   version "3.0.0"
