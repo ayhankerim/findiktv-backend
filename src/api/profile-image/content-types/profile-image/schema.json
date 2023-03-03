@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profile_images",
+  "info": {
+    "singularName": "profile-image",
+    "pluralName": "profile-images",
+    "displayName": "Profile Cover",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Status": {
+      "type": "boolean",
+      "default": true
+    },
+    "Default": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

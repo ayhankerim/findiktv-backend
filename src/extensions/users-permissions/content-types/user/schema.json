@@ -112,6 +112,11 @@
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "user"
+    },
+    "profile_cover": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile-image.profile-image"
     }
   }
 }
