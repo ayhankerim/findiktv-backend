@@ -93,7 +93,8 @@
       "displayName": "SocialAccounts",
       "type": "component",
       "repeatable": true,
-      "component": "sections.social-accounts"
+      "component": "sections.social-accounts",
+      "max": 6
     },
     "reactions": {
       "type": "relation",

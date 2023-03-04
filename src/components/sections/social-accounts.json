@@ -1,7 +1,8 @@
 {
   "collectionName": "components_sections_social_accounts",
   "info": {
-    "displayName": "SocialAccounts"
+    "displayName": "SocialAccounts",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,7 +12,8 @@
         "Facebook",
         "Twitter",
         "LinkedIn",
-        "Telegram"
+        "Telegram",
+        "Youtube"
       ],
       "required": true
     },
