@@ -7,7 +7,16 @@ module.exports = ({ env }) => [
           useDefaults: true,
           directives: {
             'connect-src': ["'self'", 'https:'],
-            "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "editor.unlayer.com", "static.cloudflareinsights.com", "www.googletagmanager.com", "www.google-analytics.com"],
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "'unsafe-eval'",
+              "editor.unlayer.com",
+              "static.cloudflareinsights.com",
+              "www.googletagmanager.com",
+              "www.google-analytics.com",
+              "findiktv-backend.herokuapp.com"
+            ],
             "frame-src": ["'self'", "editor.unlayer.com"],
             "img-src": [
               "'self'",
