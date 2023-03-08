@@ -19,6 +19,10 @@
     "text": {
       "type": "string",
       "required": true
+    },
+    "marked": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
