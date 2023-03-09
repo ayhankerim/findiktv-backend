@@ -47,7 +47,7 @@
         "ignored",
         "spam"
       ],
-      "default": "approved"
+      "default": "waiting"
     },
     "article": {
       "type": "relation",
