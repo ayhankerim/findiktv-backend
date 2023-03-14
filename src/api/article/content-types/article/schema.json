@@ -84,17 +84,6 @@
         }
       }
     },
-    "metadata": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "meta.metadata",
-      "required": true
-    },
     "notification": {
       "pluginOptions": {
         "i18n": {
@@ -102,7 +91,7 @@
         }
       },
       "type": "boolean",
-      "default": true
+      "default": false
     },
     "category": {
       "type": "relation",
@@ -157,6 +146,15 @@
       "relation": "oneToMany",
       "target": "api::reaction.reaction",
       "mappedBy": "article"
+    },
+    "ignoreHome": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }
