@@ -126,15 +126,6 @@
       "type": "boolean",
       "default": false
     },
-    "view": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer",
-      "default": 0
-    },
     "comments": {
       "type": "relation",
       "relation": "oneToMany",
@@ -155,6 +146,12 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "view": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::view.view",
+      "mappedBy": "article"
     }
   }
 }

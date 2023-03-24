@@ -66,6 +66,12 @@
     "website": {
       "type": "string",
       "maxLength": 150
+    },
+    "view": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::view.view",
+      "mappedBy": "merchant"
     }
   }
 }

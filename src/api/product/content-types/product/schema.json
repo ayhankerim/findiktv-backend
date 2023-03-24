@@ -102,12 +102,10 @@
       "mappedBy": "product"
     },
     "view": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::view.view",
+      "mappedBy": "product"
     }
   }
 }
