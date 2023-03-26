@@ -69,12 +69,6 @@
       "regex": "^$|^[a-zA-Z/-]+$",
       "unique": false,
       "required": true
-    },
-    "view": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::view.view",
-      "mappedBy": "page"
     }
   }
 }

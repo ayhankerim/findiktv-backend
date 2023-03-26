@@ -84,12 +84,6 @@
           "localized": true
         }
       }
-    },
-    "view": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::view.view",
-      "mappedBy": "city"
     }
   }
 }

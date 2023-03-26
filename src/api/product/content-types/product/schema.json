@@ -100,12 +100,6 @@
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "product"
-    },
-    "view": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::view.view",
-      "mappedBy": "product"
     }
   }
 }

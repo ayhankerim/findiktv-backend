@@ -12,40 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "city": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::city.city",
-      "inversedBy": "view"
-    },
-    "tag": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tag.tag",
-      "inversedBy": "view"
-    },
     "article": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article",
-      "inversedBy": "view"
-    },
-    "merchant": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::merchant.merchant",
-      "inversedBy": "view"
-    },
-    "page": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page",
-      "inversedBy": "view"
-    },
-    "product": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::product.product",
       "inversedBy": "view"
     },
     "view": {
