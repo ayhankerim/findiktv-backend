@@ -38,6 +38,7 @@
       "type": "enumeration",
       "enum": [
         "Display",
+        "DisplayMobile",
         "InFeed",
         "InArticle",
         "Multiplex"
