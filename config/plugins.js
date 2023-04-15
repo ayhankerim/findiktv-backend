@@ -121,6 +121,7 @@ module.exports = ({ env }) => {
                     // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html
                     toolbar: {
                         items: [
+                            'StrapiMediaLib',
                             'paragraph',
                             'heading2',
                             'heading3',
@@ -140,7 +141,6 @@ module.exports = ({ env }) => {
                             'indent',
                             'horizontalLine',
                             '|',
-                            'StrapiMediaLib',
                             'insertTable',
                             'blockQuote',
                             'mediaEmbed',
