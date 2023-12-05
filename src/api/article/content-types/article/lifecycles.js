@@ -40,10 +40,16 @@ module.exports = {
             SendNotification(result, process.env.ONESIGNAL_SEGMENT1)
             SendNotification(result, process.env.ONESIGNAL_SEGMENT2)
         }
+        strapi.db.query('api::view.view').create({
+            data: {
+                article: result.id,
+                view: 0,
+            },
+        });
     },
-    
+
     // afterCreate(event) {
-    //     const { result, params } = event;        
+    //     const { result, params } = event;
     //     strapi.db.query('api::reaction.reaction').create({
     //         data: {
     //             article: result.id,
