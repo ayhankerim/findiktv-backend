@@ -97,7 +97,7 @@ module.exports = ({ env }) => {
             enabled: true,
             config: {
                 plugin: {
-                    // disable data-theme tag setting // 
+                    // disable data-theme tag setting //
                     // setAttribute:false,
 
                     // disable strapi theme, will use default ckeditor theme //
@@ -115,7 +115,7 @@ module.exports = ({ env }) => {
 
                     // https://ckeditor.com/docs/ckeditor5/latest/features/markdown.html
                     // if you need markdown support and output set: removePlugins: [''],
-                    // default is 
+                    // default is
                     removePlugins: ['Markdown'],
 
                     // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html
@@ -259,6 +259,37 @@ module.exports = ({ env }) => {
                     },
                 }
             }
-        }
+        },
+      "rest-cache": {
+        config: {
+          provider: {
+            name: "memory",
+            options: {
+              max: 32767,
+              maxAge: 3600000,
+            },
+          },
+          strategy: {
+            contentTypes: [
+              // list of Content-Types UID to cache
+              "api::category.category",
+              "api::price.price",
+              "api::article.article",
+              "api::page.page",
+              "api::global.global",
+              "api::tag.tag",
+              "api::advertisement.advertisement",
+              "api::avatar.avatar",
+              "api::city.city",
+              "api::comment.comment",
+              "api::merchant.merchant",
+              "api::product.product",
+              "api::profile-image.profile-image",
+              "api::reaction.reaction",
+              "api::reaction-type.reaction-type"
+            ],
+          },
+        },
+      }
     }
 }

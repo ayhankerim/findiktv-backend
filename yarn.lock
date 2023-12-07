@@ -1186,7 +1186,7 @@
   dependencies:
     vary "^1.1.2"
 
-"@koa/router@10.1.1":
+"@koa/router@10.1.1", "@koa/router@^10.1.1":
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/@koa/router/-/router-10.1.1.tgz#8e5a85c9b243e0bc776802c0de564561e57a5f78"
   integrity sha512-ORNjq5z4EmQPriKbR0ER3k4Gh7YGNhWDL7JBW+8wXDrHLbWYKYSJaOJ9aN06npF5tbTxe2JBOsurpJDAvjiXKw==
@@ -3327,6 +3327,11 @@ async-retry@^1.2.1:
   dependencies:
     retry "0.13.1"
 
+async@3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/async/-/async-3.2.3.tgz#ac53dafd3f4720ee9e8a160628f18ea91df196c9"
+  integrity sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==
+
 async@^3.2.3:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.5.tgz#ebd52a8fdaf7a2289a24df399f8d8485c8a46b66"
@@ -3633,6 +3638,15 @@ cache-content-type@^1.0.0:
   dependencies:
     mime-types "^2.1.18"
     ylru "^1.2.0"
+
+cache-manager@^3.6.0:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/cache-manager/-/cache-manager-3.6.3.tgz#48052f3cf9ee4bac1cbb6adeedd69faf9da4ec04"
+  integrity sha512-dS4DnV6c6cQcVH5OxzIU1XZaACXwvVIiUPkFytnRmLOACuBGv3GQgRQ1RJGRRw4/9DF14ZK2RFlZu1TUgDniMg==
+  dependencies:
+    async "3.2.3"
+    lodash.clonedeep "^4.5.0"
+    lru-cache "6.0.0"
 
 cacheable-lookup@^5.0.3:
   version "5.0.4"
@@ -6884,6 +6898,11 @@ lodash-es@^4.17.15, lodash-es@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
+
 lodash.deburr@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/lodash.deburr/-/lodash.deburr-4.1.0.tgz#ddb1bbb3ef07458c0177ba07de14422cb033ff9b"
@@ -6995,6 +7014,13 @@ lowlight@^1.17.0:
     fault "^1.0.0"
     highlight.js "~10.7.0"
 
+lru-cache@6.0.0, lru-cache@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
+  integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
+  dependencies:
+    yallist "^4.0.0"
+
 "lru-cache@7.10.1 - 7.13.1":
   version "7.13.1"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.13.1.tgz#267a81fbd0881327c46a81c5922606a2cfe336c4"
@@ -7006,13 +7032,6 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
-
-lru-cache@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
-  integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
-  dependencies:
-    yallist "^4.0.0"
 
 lru_map@^0.3.3:
   version "0.3.3"
@@ -8030,6 +8049,14 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
+path@^0.12.7:
+  version "0.12.7"
+  resolved "https://registry.yarnpkg.com/path/-/path-0.12.7.tgz#d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f"
+  integrity sha512-aXXC6s+1w7otVF9UletFkFcDsJeO7lSZBPUQhtb5O0xJe8LtYhj/GxldoL09bBj9+ZmE2hNoHqQSFMN5fikh4Q==
+  dependencies:
+    process "^0.11.1"
+    util "^0.10.3"
+
 pause@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
@@ -8274,6 +8301,11 @@ process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
+
+process@^0.11.1:
+  version "0.11.10"
+  resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
+  integrity sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==
 
 progress-stream@^2.0.0:
   version "2.0.0"
@@ -9525,6 +9557,25 @@ strapi-plugin-email-designer@^2.2.0:
     react-syntax-highlighter "^15.5.0"
     striptags "^3.2.0"
 
+strapi-plugin-rest-cache@^4.2.8:
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-rest-cache/-/strapi-plugin-rest-cache-4.2.8.tgz#4f8f014d09281d82294fe578af7d424bddb4eaf2"
+  integrity sha512-alAcIp1FOpHCHvqYV8ZJDVtbRohNwlvZqnCcewA04hLbLS3N+oB3DC6JSQSL3ur0XEcm+YnaOkw8n95DoLRzsg==
+  dependencies:
+    "@koa/router" "^10.1.1"
+    chalk "^4.1.2"
+    debug "^4.3.4"
+    lodash "^4.17.21"
+    path "^0.12.7"
+    strapi-provider-rest-cache-memory "^4.2.8"
+
+strapi-provider-rest-cache-memory@^4.2.8:
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/strapi-provider-rest-cache-memory/-/strapi-provider-rest-cache-memory-4.2.8.tgz#9e3f34b8017b6870e341df80ab2abdd4ca665821"
+  integrity sha512-kqGr+5D0/UvvUrHDCmAFGOJxRKRbYDcWLRGye/lgPInHfD3Bh0gpDPXyvk7+tb6OwpbdkLWrV6GGO503p1nRAA==
+  dependencies:
+    cache-manager "^3.6.0"
+
 strapi-provider-upload-cloudflare@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/strapi-provider-upload-cloudflare/-/strapi-provider-upload-cloudflare-4.2.0.tgz#846513517c891dff58776da3953faca7f0c7be57"
@@ -10182,6 +10233,13 @@ util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+util@^0.10.3:
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/util/-/util-0.10.4.tgz#3aa0125bfe668a4672de58857d3ace27ecb76901"
+  integrity sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==
+  dependencies:
+    inherits "2.0.3"
 
 utila@~0.4:
   version "0.4.0"
