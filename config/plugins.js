@@ -32,13 +32,8 @@ module.exports = ({ env }) => {
         },
         'email-designer': {
             enabled: true,
-
-            // ⬇︎ Add the config property
             config: {
                 editor: {
-                    // optional - if you have a premium unlayer account
-                    //projectId: [UNLAYER_PROJECT_ID],
-
                     tools: {
                         heading: {
                             properties: {
@@ -56,9 +51,6 @@ module.exports = ({ env }) => {
                         },
                         fonts: {
                             showDefaultFonts: false,
-                            /*
-                             * If you want use a custom font you need a premium unlayer account and pass a projectId number :-(
-                             */
                             customFonts: [
                                 {
                                     label: 'Anton',
@@ -70,14 +62,13 @@ module.exports = ({ env }) => {
                                     value: "'Lato', Tahoma, Verdana, sans-serif",
                                     url: 'https://fonts.googleapis.com/css?family=Lato',
                                 },
-                                // ...
                             ],
                         },
                         mergeTags: [
                             {
-                                name: 'Email',
-                                value: '{{= USER.username }}',
-                                sample: 'john@doe.com',
+                                name: 'CODE',
+                                value: '{{= validationCode }}',
+                                sample: 'Kod',
                             },
                             // ...
                         ],
