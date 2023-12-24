@@ -15,7 +15,9 @@ module.exports = ({ env }) => [
               "static.cloudflareinsights.com",
               "www.googletagmanager.com",
               "www.google-analytics.com",
-              "findiktv-backend.herokuapp.com"
+              "findiktv-backend.herokuapp.com",
+              "panel.findiktv.com",
+              "www.findiktv.com"
             ],
             "frame-src": ["'self'", "editor.unlayer.com"],
             "img-src": [
