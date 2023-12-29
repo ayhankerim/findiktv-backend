@@ -93,6 +93,7 @@
       "type": "enumeration",
       "enum": [
         "approved",
+        "adjustment",
         "waiting",
         "ignored",
         "spam",

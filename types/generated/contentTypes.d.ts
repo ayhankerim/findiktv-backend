@@ -680,7 +680,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -752,6 +751,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToOne',
       'api::profile-image.profile-image'
     >;
+    googleData: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1570,7 +1570,7 @@ export interface ApiPricePrice extends Schema.CollectionType {
         maxLength: 30;
       }>;
     approvalStatus: Attribute.Enumeration<
-      ['approved', 'waiting', 'ignored', 'spam', 'calculation']
+      ['approved', 'adjustment', 'waiting', 'ignored', 'spam', 'calculation']
     > &
       Attribute.DefaultTo<'approved'>;
     createdAt: Attribute.DateTime;
