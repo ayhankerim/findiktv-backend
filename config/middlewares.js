@@ -19,7 +19,7 @@ module.exports = ({ env }) => [
               "panel.findiktv.com",
               "www.findiktv.com"
             ],
-            "frame-src": ["'self'", "editor.unlayer.com"],
+            "frame-src": ["'self'", "editor.unlayer.com", "www.youtube.com", "youtube.com"],
             "img-src": [
               "'self'",
               "data:",
