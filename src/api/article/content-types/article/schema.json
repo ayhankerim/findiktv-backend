@@ -161,6 +161,15 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "share": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": true
     }
   }
 }

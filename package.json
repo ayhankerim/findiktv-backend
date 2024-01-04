@@ -10,6 +10,7 @@
     "@strapi/plugin-users-permissions": "4.15.5",
     "@strapi/provider-email-nodemailer": "^4.15.5",
     "@strapi/strapi": "4.15.5",
+    "fb": "^2.0.0",
     "lodash": "4.17.21",
     "lodash.set": "^4.3.2",
     "mysql": "2.18.1",

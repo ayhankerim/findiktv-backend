@@ -1,4 +1,6 @@
 const OneSignal = require('@onesignal/node-onesignal')
+var FB = require('fb');
+FB.setAccessToken(process.env.FACEBOOK_TOKEN);
 
 const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID
 const app_key_provider = {
@@ -38,8 +40,26 @@ module.exports = {
         const { result, params } = event;
         if (result.notification === true && result.publishedAt) {
             SendNotification(result, process.env.ONESIGNAL_SEGMENT1)
-            SendNotification(result, process.env.ONESIGNAL_SEGMENT2)
-        }
+          //SendNotification(result, process.env.ONESIGNAL_SEGMENT2)
+        };
+        if (result.share && result.publishedAt) {
+          FB.api(
+            '/315901728472967/feed',
+            'POST',
+            {
+              "message": result.title,
+              "link": "https://www.findiktv.com/haber/" + result.id + "/" + result.slug,
+              "published": "true"
+            },
+            async function (response) {
+              await strapi.entityService.update('api::article.article', result.id, {
+                data: {
+                  share: false,
+                },
+              });
+            }
+          );
+        };
         strapi.db.query('api::view.view').create({
             data: {
                 article: result.id,

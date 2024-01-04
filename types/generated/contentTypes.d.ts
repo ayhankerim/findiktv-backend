@@ -940,6 +940,13 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
+    share: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
