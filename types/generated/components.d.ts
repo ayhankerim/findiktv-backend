@@ -419,6 +419,17 @@ export interface SectionsTestimonialsGroup extends Schema.Component {
   };
 }
 
+export interface SectionsVideoEmbed extends Schema.Component {
+  collectionName: 'components_sections_video_embeds';
+  info: {
+    displayName: 'Video Embed';
+    icon: 'play';
+  };
+  attributes: {
+    url: Attribute.String & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -448,6 +459,7 @@ declare module '@strapi/types' {
       'sections.slider': SectionsSlider;
       'sections.social-accounts': SectionsSocialAccounts;
       'sections.testimonials-group': SectionsTestimonialsGroup;
+      'sections.video-embed': SectionsVideoEmbed;
     }
   }
 }

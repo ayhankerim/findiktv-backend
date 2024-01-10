@@ -863,6 +863,14 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 100;
       }>;
+    contentSections: Attribute.DynamicZone<
+      ['sections.rich-text', 'sections.article-section', 'sections.video-embed']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     image: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -947,6 +955,15 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    priority: Attribute.Enumeration<
+      ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'A5'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
