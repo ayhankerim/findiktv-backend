@@ -55,21 +55,22 @@
         }
       },
       "type": "richtext",
-      "required": true,
-      "minLength": 100
+      "required": false
     },
     "contentSections": {
       "type": "dynamiczone",
       "components": [
         "sections.rich-text",
         "sections.article-section",
-        "sections.video-embed"
+        "sections.video-embed",
+        "sections.city-price-list"
       ],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
     "image": {
       "type": "media",

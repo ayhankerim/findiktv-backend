@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_sections_city_price_lists",
+  "info": {
+    "displayName": "City Price List",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "version": {
+      "type": "enumeration",
+      "enum": [
+        "average",
+        "min-max"
+      ],
+      "default": "min-max",
+      "required": true
+    },
+    "priceType": {
+      "type": "enumeration",
+      "enum": [
+        "stockmarket",
+        "openmarket",
+        "tmo",
+        "all"
+      ],
+      "default": "stockmarket",
+      "required": true
+    },
+    "approvalStatus": {
+      "type": "enumeration",
+      "enum": [
+        "editorOnly",
+        "userOnly",
+        "approved",
+        "all"
+      ],
+      "default": "editorOnly",
+      "required": true
+    }
+  }
+}

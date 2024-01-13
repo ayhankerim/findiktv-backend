@@ -249,6 +249,38 @@ export interface SectionsBottomActions extends Schema.Component {
   };
 }
 
+export interface SectionsCityPriceList extends Schema.Component {
+  collectionName: 'components_sections_city_price_lists';
+  info: {
+    displayName: 'City Price List';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    product: Attribute.Relation<
+      'sections.city-price-list',
+      'oneToOne',
+      'api::product.product'
+    >;
+    date: Attribute.Date & Attribute.Required;
+    version: Attribute.Enumeration<['average', 'min-max']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'min-max'>;
+    priceType: Attribute.Enumeration<
+      ['stockmarket', 'openmarket', 'tmo', 'all']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'stockmarket'>;
+    approvalStatus: Attribute.Enumeration<
+      ['editorOnly', 'userOnly', 'approved', 'all']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'editorOnly'>;
+  };
+}
+
 export interface SectionsFeatureColumnsGroup extends Schema.Component {
   collectionName: 'components_slices_feature_columns_groups';
   info: {
@@ -449,6 +481,7 @@ declare module '@strapi/types' {
       'meta.metadata': MetaMetadata;
       'sections.article-section': SectionsArticleSection;
       'sections.bottom-actions': SectionsBottomActions;
+      'sections.city-price-list': SectionsCityPriceList;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
       'sections.hero': SectionsHero;

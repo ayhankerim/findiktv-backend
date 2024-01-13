@@ -854,18 +854,20 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         maxLength: 250;
       }>;
     content: Attribute.RichText &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
-      }> &
-      Attribute.SetMinMaxLength<{
-        minLength: 100;
       }>;
     contentSections: Attribute.DynamicZone<
-      ['sections.rich-text', 'sections.article-section', 'sections.video-embed']
+      [
+        'sections.rich-text',
+        'sections.article-section',
+        'sections.video-embed',
+        'sections.city-price-list'
+      ]
     > &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
