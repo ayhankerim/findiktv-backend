@@ -167,15 +167,6 @@
       "target": "api::view.view",
       "mappedBy": "article"
     },
-    "AddPricesComponent": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean",
-      "default": false
-    },
     "share": {
       "pluginOptions": {
         "i18n": {

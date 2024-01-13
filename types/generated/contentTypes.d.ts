@@ -943,13 +943,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'oneToOne',
       'api::view.view'
     >;
-    AddPricesComponent: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
     share: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
