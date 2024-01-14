@@ -36,51 +36,30 @@ const SendNotification = async (result, segment) => {
 }
 
 module.exports = {
-    afterUpdate(event) {
-        const { result, params } = event;
-        if (result.notification === true && result.publishedAt) {
-            SendNotification(result, process.env.ONESIGNAL_SEGMENT1)
-          //SendNotification(result, process.env.ONESIGNAL_SEGMENT2)
-        };
-        if (result.share && result.publishedAt) {
-          FB.api(
-            '/315901728472967/feed',
-            'POST',
-            {
-              "message": result.title,
-              "link": "https://www.findiktv.com/haber/" + result.id + "/" + result.slug,
-              "published": "true"
-            },
-            async function (response) {
-              await strapi.entityService.update('api::article.article', result.id, {
-                data: {
-                  share: false,
-                },
-              });
-            }
-          );
-        };
-        strapi.db.query('api::view.view').create({
-            data: {
-                article: result.id,
-                view: 0,
-            },
-        });
-    },
-
-    // afterCreate(event) {
-    //     const { result, params } = event;
-    //     strapi.db.query('api::reaction.reaction').create({
-    //         data: {
-    //             article: result.id,
-    //             angry: 0,
-    //             dislike: 0,
-    //             applause: 0,
-    //             love: 0,
-    //             sad: 0,
-    //             shocked: 0,
-    //             lol: 0,
-    //         },
-    //     });
-    // },
+  afterUpdate(event) {
+      const { result, params } = event;
+      if (result.notification === true && result.publishedAt) {
+          SendNotification(result, process.env.ONESIGNAL_SEGMENT1)
+      };
+      if (result.share && result.publishedAt) {
+        FB.api(
+          '/315901728472967/feed',
+          'POST',
+          {
+            "message": result.title,
+            "link": "https://www.findiktv.com/haber/" + result.id + "/" + result.slug,
+            "published": "true"
+          }
+        );
+      };
+  },
+  afterCreate(event) {
+    const { result, params } = event;
+    strapi.db.query('api::view.view').create({
+      data: {
+        article: result.id,
+        view: 0,
+      },
+    });
+  },
 };
