@@ -7,6 +7,7 @@
     "@onesignal/node-onesignal": "^2.0.1-beta2",
     "@strapi/plugin-graphql": "^4.15.5",
     "@strapi/plugin-i18n": "4.15.5",
+    "@strapi/plugin-sentry": "^4.17.1",
     "@strapi/plugin-users-permissions": "4.15.5",
     "@strapi/provider-email-nodemailer": "^4.15.5",
     "@strapi/strapi": "4.15.5",

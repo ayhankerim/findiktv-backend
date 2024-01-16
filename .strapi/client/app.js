@@ -5,6 +5,7 @@
 import ckeditor from "@_sh/strapi-plugin-ckeditor/strapi-admin";
 import graphql from "@strapi/plugin-graphql/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
+import sentry from "@strapi/plugin-sentry/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import emailDesigner from "strapi-plugin-email-designer/strapi-admin";
 import restCache from "strapi-plugin-rest-cache/strapi-admin";
@@ -18,6 +19,7 @@ renderAdmin(document.getElementById("strapi"), {
     ckeditor: ckeditor,
     graphql: graphql,
     i18n: i18N,
+    sentry: sentry,
     "users-permissions": usersPermissions,
     "email-designer": emailDesigner,
     "rest-cache": restCache,
