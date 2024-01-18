@@ -22,15 +22,6 @@
       "type": "date",
       "required": true
     },
-    "version": {
-      "type": "enumeration",
-      "enum": [
-        "average",
-        "min-max"
-      ],
-      "default": "min-max",
-      "required": true
-    },
     "priceType": {
       "type": "enumeration",
       "enum": [

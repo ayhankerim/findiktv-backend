@@ -265,9 +265,6 @@ export interface SectionsCityPriceList extends Schema.Component {
       'api::product.product'
     >;
     date: Attribute.Date & Attribute.Required;
-    version: Attribute.Enumeration<['average', 'min-max']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'min-max'>;
     priceType: Attribute.Enumeration<
       ['stockmarket', 'openmarket', 'tmo', 'all']
     > &
