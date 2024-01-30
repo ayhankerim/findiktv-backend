@@ -983,6 +983,74 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiAutoArticleAutoArticle extends Schema.CollectionType {
+  collectionName: 'auto_articles';
+  info: {
+    singularName: 'auto-article';
+    pluralName: 'auto-articles';
+    displayName: 'Otomatik Haberler';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
+    summary: Attribute.Text & Attribute.Required;
+    contentSections: Attribute.DynamicZone<
+      [
+        'sections.rich-text',
+        'sections.article-section',
+        'sections.video-embed',
+        'sections.city-price-list'
+      ]
+    > &
+      Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    homepage_image: Attribute.Media & Attribute.Required;
+    category: Attribute.Relation<
+      'api::auto-article.auto-article',
+      'oneToOne',
+      'api::category.category'
+    >;
+    tags: Attribute.Relation<
+      'api::auto-article.auto-article',
+      'oneToMany',
+      'api::tag.tag'
+    >;
+    cities: Attribute.Relation<
+      'api::auto-article.auto-article',
+      'oneToMany',
+      'api::city.city'
+    >;
+    product: Attribute.Relation<
+      'api::auto-article.auto-article',
+      'oneToOne',
+      'api::product.product'
+    >;
+    last_publish_date: Attribute.DateTime;
+    inUse: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-article.auto-article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-article.auto-article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAvatarAvatar extends Schema.CollectionType {
   collectionName: 'avatars';
   info: {
@@ -1932,6 +2000,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::advertisement.advertisement': ApiAdvertisementAdvertisement;
       'api::article.article': ApiArticleArticle;
+      'api::auto-article.auto-article': ApiAutoArticleAutoArticle;
       'api::avatar.avatar': ApiAvatarAvatar;
       'api::category.category': ApiCategoryCategory;
       'api::city.city': ApiCityCity;

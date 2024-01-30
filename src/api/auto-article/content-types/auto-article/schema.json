@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auto_articles",
+  "info": {
+    "singularName": "auto-article",
+    "pluralName": "auto-articles",
+    "displayName": "Otomatik Haberler",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 10
+    },
+    "summary": {
+      "type": "text",
+      "required": true
+    },
+    "contentSections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.rich-text",
+        "sections.article-section",
+        "sections.video-embed",
+        "sections.city-price-list"
+      ],
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "homepage_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "cities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::city.city"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "last_publish_date": {
+      "type": "datetime"
+    },
+    "inUse": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
