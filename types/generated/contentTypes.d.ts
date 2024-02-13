@@ -751,7 +751,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToOne',
       'api::profile-image.profile-image'
     >;
-    googleData: Attribute.JSON;
+    firm: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::firm.firm'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -959,6 +963,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<'A5'>;
+    firms: Attribute.Relation<
+      'api::article.article',
+      'manyToMany',
+      'api::firm.firm'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1350,6 +1359,109 @@ export interface ApiContactContact extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFirmFirm extends Schema.CollectionType {
+  collectionName: 'firms';
+  info: {
+    singularName: 'firm';
+    pluralName: 'firms';
+    displayName: 'Firm';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 5;
+        maxLength: 100;
+      }>;
+    slug: Attribute.UID<'api::firm.firm', 'name'> & Attribute.Required;
+    firm_category: Attribute.Relation<
+      'api::firm.firm',
+      'manyToOne',
+      'api::firm-category.firm-category'
+    >;
+    address: Attribute.JSON;
+    user: Attribute.Relation<
+      'api::firm.firm',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    email: Attribute.Email;
+    phone: Attribute.BigInteger &
+      Attribute.SetMinMax<{
+        max: '9999999999';
+      }>;
+    website: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    logo: Attribute.Media;
+    about: Attribute.RichText;
+    gallery: Attribute.Media;
+    video: Attribute.String;
+    servicePoints: Attribute.JSON;
+    active: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    articles: Attribute.Relation<
+      'api::firm.firm',
+      'manyToMany',
+      'api::article.article'
+    >;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 180;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::firm.firm', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::firm.firm', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFirmCategoryFirmCategory extends Schema.CollectionType {
+  collectionName: 'firm_categories';
+  info: {
+    singularName: 'firm-category';
+    pluralName: 'firm-categories';
+    displayName: 'Firma Sekt\u00F6r\u00FC';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::firm-category.firm-category', 'name'> &
+      Attribute.Required;
+    description: Attribute.Text;
+    firms: Attribute.Relation<
+      'api::firm-category.firm-category',
+      'oneToMany',
+      'api::firm.firm'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::firm-category.firm-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::firm-category.firm-category',
       'oneToOne',
       'admin::user'
     > &
@@ -2006,6 +2118,8 @@ declare module '@strapi/types' {
       'api::city.city': ApiCityCity;
       'api::comment.comment': ApiCommentComment;
       'api::contact.contact': ApiContactContact;
+      'api::firm.firm': ApiFirmFirm;
+      'api::firm-category.firm-category': ApiFirmCategoryFirmCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::merchant.merchant': ApiMerchantMerchant;

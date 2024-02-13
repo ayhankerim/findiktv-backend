@@ -195,6 +195,12 @@
         "A9"
       ],
       "default": "A5"
+    },
+    "firms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::firm.firm",
+      "mappedBy": "articles"
     }
   }
 }

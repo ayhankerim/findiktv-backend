@@ -118,8 +118,11 @@
       "relation": "oneToOne",
       "target": "api::profile-image.profile-image"
     },
-    "googleData": {
-      "type": "json"
+    "firm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::firm.firm",
+      "mappedBy": "user"
     }
   }
 }
