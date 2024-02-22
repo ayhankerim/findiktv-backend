@@ -89,6 +89,10 @@
     "description": {
       "type": "text",
       "maxLength": 180
+    },
+    "fullname": {
+      "type": "string",
+      "required": false
     }
   }
 }

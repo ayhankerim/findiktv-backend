@@ -1210,11 +1210,6 @@ export interface ApiCityCity extends Schema.CollectionType {
       'manyToMany',
       'api::article.article'
     >;
-    merchants: Attribute.Relation<
-      'api::city.city',
-      'oneToMany',
-      'api::merchant.merchant'
-    >;
     metadata: Attribute.Component<'meta.metadata'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1228,7 +1223,14 @@ export interface ApiCityCity extends Schema.CollectionType {
       'api::comment.comment'
     >;
     featured: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cityCode: Attribute.Integer &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1421,6 +1423,7 @@ export interface ApiFirmFirm extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 180;
       }>;
+    fullname: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1578,66 +1581,6 @@ export interface ApiLeadFormSubmissionLeadFormSubmission
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::lead-form-submission.lead-form-submission',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMerchantMerchant extends Schema.CollectionType {
-  collectionName: 'merchants';
-  info: {
-    singularName: 'merchant';
-    pluralName: 'merchants';
-    displayName: 'Merchant';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 10;
-        maxLength: 250;
-      }>;
-    slug: Attribute.UID<'api::merchant.merchant', 'title'> & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    mobile: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 10;
-        max: 10;
-      }>;
-    city: Attribute.Relation<
-      'api::merchant.merchant',
-      'manyToOne',
-      'api::city.city'
-    >;
-    product: Attribute.Relation<
-      'api::merchant.merchant',
-      'manyToOne',
-      'api::product.product'
-    >;
-    address: Attribute.Text & Attribute.Required;
-    logo: Attribute.Media & Attribute.Required;
-    gallery: Attribute.Media;
-    website: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 150;
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::merchant.merchant',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::merchant.merchant',
       'oneToOne',
       'admin::user'
     > &
@@ -1844,11 +1787,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::product.product',
       'manyToMany',
       'api::article.article'
-    >;
-    merchants: Attribute.Relation<
-      'api::product.product',
-      'oneToMany',
-      'api::merchant.merchant'
     >;
     metadata: Attribute.Component<'meta.metadata'> &
       Attribute.Required &
@@ -2122,7 +2060,6 @@ declare module '@strapi/types' {
       'api::firm-category.firm-category': ApiFirmCategoryFirmCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
-      'api::merchant.merchant': ApiMerchantMerchant;
       'api::page.page': ApiPagePage;
       'api::price.price': ApiPricePrice;
       'api::product.product': ApiProductProduct;

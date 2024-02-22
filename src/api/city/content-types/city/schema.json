@@ -49,12 +49,6 @@
       "target": "api::article.article",
       "mappedBy": "cities"
     },
-    "merchants": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::merchant.merchant",
-      "mappedBy": "city"
-    },
     "metadata": {
       "type": "component",
       "repeatable": false,
@@ -75,7 +69,7 @@
     "featured": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
@@ -84,6 +78,16 @@
           "localized": true
         }
       }
+    },
+    "cityCode": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "required": true,
+      "unique": true
     }
   }
 }

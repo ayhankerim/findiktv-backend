@@ -35,6 +35,7 @@ module.exports = ({ env }) => {
                     apiKey: env('STRAPI_UPLOAD_CLOUDFLARE_API_KEY'),
                     variant: env('STRAPI_UPLOAD_CLOUDFLARE_VARIANT'),
                 },
+                sizeLimit: 10 * 1024 * 1024
             },
         },
         'email-designer': {
@@ -280,7 +281,8 @@ module.exports = ({ env }) => {
               "api::avatar.avatar",
               "api::city.city",
               "api::comment.comment",
-              "api::merchant.merchant",
+              "api::firm-category.firm-category",
+              "api::firm.firm",
               "api::product.product",
               "api::profile-image.profile-image",
               "api::reaction.reaction",

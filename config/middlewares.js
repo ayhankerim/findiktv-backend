@@ -47,13 +47,24 @@ module.exports = ({ env }) => [
     name: 'strapi::cors',
     config: {
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      headers: ['*'],
+      origin: ['http://localhost:1337', 'http://localhost:3000', 'http://127.0.0.1:1337', 'http://127.0.0.1:3000', 'https://panel.findiktv.com', 'https://www.findiktv.com'],
       keepHeaderOnError: true,
     },
   },
   'strapi::logger',
   'strapi::query',
-  'strapi::body',
+  {
+    name: "strapi::body",
+    config: {
+      formLimit: "256mb",
+      jsonLimit: "256mb",
+      textLimit: "256mb",
+      formidable: {
+        maxFileSize: 10 * 1024 * 1024,
+      },
+    },
+  },
   'strapi::session',
   'strapi::favicon',
   'strapi::public',

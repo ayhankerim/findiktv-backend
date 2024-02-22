@@ -69,12 +69,6 @@
       "target": "api::article.article",
       "mappedBy": "products"
     },
-    "merchants": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::merchant.merchant",
-      "mappedBy": "product"
-    },
     "metadata": {
       "type": "component",
       "repeatable": false,
