@@ -94,6 +94,7 @@
       "enum": [
         "approved",
         "adjustment",
+        "firmEntry",
         "waiting",
         "ignored",
         "spam",

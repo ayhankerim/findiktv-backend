@@ -1712,7 +1712,15 @@ export interface ApiPricePrice extends Schema.CollectionType {
         maxLength: 30;
       }>;
     approvalStatus: Attribute.Enumeration<
-      ['approved', 'adjustment', 'waiting', 'ignored', 'spam', 'calculation']
+      [
+        'approved',
+        'adjustment',
+        'firmEntry',
+        'waiting',
+        'ignored',
+        'spam',
+        'calculation'
+      ]
     > &
       Attribute.DefaultTo<'approved'>;
     createdAt: Attribute.DateTime;
