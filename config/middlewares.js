@@ -2,39 +2,40 @@ module.exports = ({ env }) => [
   'strapi::errors',
   {
     name: "strapi::security",
-      config: {
-        contentSecurityPolicy: {
-          useDefaults: true,
-          directives: {
-            'connect-src': ["'self'", 'https:'],
-            "script-src": [
-              "'self'",
-              "'unsafe-inline'",
-              "'unsafe-eval'",
-              "editor.unlayer.com",
-              "static.cloudflareinsights.com",
-              "www.googletagmanager.com",
-              "www.google-analytics.com",
-              "findiktv-backend.herokuapp.com",
-              "panel.findiktv.com",
-              "www.findiktv.com"
-            ],
-            "frame-src": ["'self'", "editor.unlayer.com", "www.youtube.com", "youtube.com"],
-            "img-src": [
-              "'self'",
-              "data:",
-              'blob:',
-              "imagedelivery.net",
-              "cdn.jsdelivr.net",
-              "strapi.io",
-              "s3.amazonaws.com",
-              "www.google.com.tr",
-              "www.google.com",
-              "www.google-analytics.com",
-            ],
-            'media-src': ["'self'", 'data:', 'blob:', 'imagedelivery.net'],
-          },
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          "script-src": [
+            "'self'",
+            "'unsafe-inline'",
+            "'unsafe-eval'",
+            "editor.unlayer.com",
+            "static.cloudflareinsights.com",
+            "www.googletagmanager.com",
+            "www.google-analytics.com",
+            "findiktv-backend.herokuapp.com",
+            "https://cdn.ckeditor.com",
+            "panel.findiktv.com",
+            "www.findiktv.com"
+          ],
+          "frame-src": ["'self'", "editor.unlayer.com", "www.youtube.com", "youtube.com"],
+          "img-src": [
+            "'self'",
+            "data:",
+            'blob:',
+            "imagedelivery.net",
+            "cdn.jsdelivr.net",
+            "strapi.io",
+            "s3.amazonaws.com",
+            "www.google.com.tr",
+            "www.google.com",
+            "www.google-analytics.com",
+          ],
+          'media-src': ["'self'", 'data:', 'blob:', 'imagedelivery.net'],
         },
+      },
     },
   },
   {

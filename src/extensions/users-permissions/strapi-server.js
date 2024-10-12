@@ -11,20 +11,16 @@ module.exports = plugin => {
     if (!ctx.state.user) {
       return ctx.unauthorized();
     }
-    const user = await strapi.entityService.findOne(
-      'plugin::users-permissions.user',
-      ctx.state.user.id,
-      { populate: ['role'] }
-    );
+    const user = await strapi.documents('plugin::users-permissions.user').findOne({
+      documentId: "__TODO__",
+      populate: ['role']
+    });
 
     ctx.body = sanitizeOutput(user);
   };
 
   plugin.controllers.user.find = async (ctx) => {
-    const users = await strapi.entityService.findMany(
-      'plugin::users-permissions.user',
-      { ...ctx.query, populate: ['role'] }
-    );
+    const users = await strapi.documents('plugin::users-permissions.user').findMany({ ...ctx.query, populate: ['role'] });
 
     ctx.body = users.map(user => sanitizeOutput(user));
   };

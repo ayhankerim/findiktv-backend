@@ -28,11 +28,7 @@
       "maxLength": 180
     },
     "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "type": "uid",
       "required": true,
       "targetField": "title"
@@ -49,13 +45,12 @@
       "required": true
     },
     "content": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
+      "pluginOptions": {},
+      "type": "customField",
+      "options": {
+        "preset": "default"
       },
-      "type": "richtext",
-      "required": false
+      "customField": "plugin::ckeditor5.CKEditor"
     },
     "contentSections": {
       "type": "dynamiczone",
@@ -155,7 +150,7 @@
     "ignoreHome": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "type": "boolean",
@@ -170,7 +165,7 @@
     "share": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "type": "boolean",
