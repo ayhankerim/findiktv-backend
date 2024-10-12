@@ -1566,18 +1566,6 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
         };
       }>;
     articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
