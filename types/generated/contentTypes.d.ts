@@ -828,7 +828,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 120;
       }>;
-    avatar: Attribute.Media;
+    avatar: Attribute.Media<'images'>;
     city: Attribute.Relation<
       'plugin::users-permissions.user',
       'oneToOne',
@@ -991,14 +991,14 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media &
+    image: Attribute.Media<'images'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    homepage_image: Attribute.Media &
+    homepage_image: Attribute.Media<'images'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1133,8 +1133,8 @@ export interface ApiAutoArticleAutoArticle extends Schema.CollectionType {
       ]
     > &
       Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
-    homepage_image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
+    homepage_image: Attribute.Media<'images'> & Attribute.Required;
     category: Attribute.Relation<
       'api::auto-article.auto-article',
       'oneToOne',
@@ -1187,7 +1187,7 @@ export interface ApiAvatarAvatar extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
     users: Attribute.Relation<
       'api::avatar.avatar',
       'oneToMany',
@@ -1336,7 +1336,7 @@ export interface ApiCityCity extends Schema.CollectionType {
       'oneToMany',
       'api::comment.comment'
     >;
-    featured: Attribute.Media &
+    featured: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1535,9 +1535,9 @@ export interface ApiFirmFirm extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 200;
       }>;
-    logo: Attribute.Media;
+    logo: Attribute.Media<'images'>;
     about: Attribute.RichText;
-    gallery: Attribute.Media;
+    gallery: Attribute.Media<'images', true>;
     video: Attribute.String;
     servicePoints: Attribute.JSON;
     active: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
@@ -1630,7 +1630,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
           localized: true;
         };
       }>;
-    favicon: Attribute.Media &
+    favicon: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1911,7 +1911,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 10;
       }>;
-    featured: Attribute.Media &
+    featured: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1982,7 +1982,7 @@ export interface ApiProfileImageProfileImage extends Schema.CollectionType {
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
-    Image: Attribute.Media & Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
     Status: Attribute.Boolean & Attribute.DefaultTo<true>;
     Default: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
@@ -2070,7 +2070,7 @@ export interface ApiReactionTypeReactionType extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::reaction-type.reaction-type', 'title'> &
       Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
     status: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
     sort: Attribute.Integer;
     createdAt: Attribute.DateTime;
