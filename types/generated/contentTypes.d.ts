@@ -403,9 +403,12 @@ export interface PluginUploadFile extends Schema.CollectionType {
     folderPath: Attribute.String &
       Attribute.Required &
       Attribute.Private &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -441,9 +444,12 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     pathId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     parent: Attribute.Relation<
       'plugin::upload.folder',
@@ -462,9 +468,12 @@ export interface PluginUploadFolder extends Schema.CollectionType {
     >;
     path: Attribute.String &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -475,6 +484,105 @@ export interface PluginUploadFolder extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::upload.folder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginContentReleasesRelease extends Schema.CollectionType {
+  collectionName: 'strapi_releases';
+  info: {
+    singularName: 'release';
+    pluralName: 'releases';
+    displayName: 'Release';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    releasedAt: Attribute.DateTime;
+    scheduledAt: Attribute.DateTime;
+    timezone: Attribute.String;
+    status: Attribute.Enumeration<
+      ['ready', 'blocked', 'failed', 'done', 'empty']
+    > &
+      Attribute.Required;
+    actions: Attribute.Relation<
+      'plugin::content-releases.release',
+      'oneToMany',
+      'plugin::content-releases.release-action'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::content-releases.release',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::content-releases.release',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginContentReleasesReleaseAction
+  extends Schema.CollectionType {
+  collectionName: 'strapi_release_actions';
+  info: {
+    singularName: 'release-action';
+    pluralName: 'release-actions';
+    displayName: 'Release Action';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    type: Attribute.Enumeration<['publish', 'unpublish']> & Attribute.Required;
+    entry: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'morphToOne'
+    >;
+    contentType: Attribute.String & Attribute.Required;
+    locale: Attribute.String;
+    release: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'manyToOne',
+      'plugin::content-releases.release'
+    >;
+    isEntryValid: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::content-releases.release-action',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::content-releases.release-action',
       'oneToOne',
       'admin::user'
     > &
@@ -553,10 +661,13 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
     code: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -728,9 +839,12 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
         maxLength: 200;
       }>;
     SocialAccounts: Attribute.Component<'sections.social-accounts', true> &
-      Attribute.SetMinMax<{
-        max: 6;
-      }>;
+      Attribute.SetMinMax<
+        {
+          max: 6;
+        },
+        number
+      >;
     reactions: Attribute.Relation<
       'plugin::users-permissions.user',
       'oneToMany',
@@ -1271,9 +1385,14 @@ export interface ApiCommentComment extends Schema.CollectionType {
       }>;
     blockedThread: Attribute.Boolean & Attribute.DefaultTo<false>;
     removed: Attribute.Boolean & Attribute.DefaultTo<false>;
-    threadOf: Attribute.Relation<
+    thread_of: Attribute.Relation<
       'api::comment.comment',
-      'oneToOne',
+      'manyToOne',
+      'api::comment.comment'
+    >;
+    thread_ons: Attribute.Relation<
+      'api::comment.comment',
+      'oneToMany',
       'api::comment.comment'
     >;
     like: Attribute.Integer & Attribute.DefaultTo<0>;
@@ -1293,7 +1412,12 @@ export interface ApiCommentComment extends Schema.CollectionType {
       }>;
     reply_to: Attribute.Relation<
       'api::comment.comment',
-      'oneToOne',
+      'manyToOne',
+      'api::comment.comment'
+    >;
+    reply_froms: Attribute.Relation<
+      'api::comment.comment',
+      'oneToMany',
       'api::comment.comment'
     >;
     flag: Attribute.Integer & Attribute.DefaultTo<0>;
@@ -1401,9 +1525,12 @@ export interface ApiFirmFirm extends Schema.CollectionType {
     >;
     email: Attribute.Email;
     phone: Attribute.BigInteger &
-      Attribute.SetMinMax<{
-        max: '9999999999';
-      }>;
+      Attribute.SetMinMax<
+        {
+          max: '9999999999';
+        },
+        string
+      >;
     website: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 200;
@@ -1482,8 +1609,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     description: '';
   };
   options: {
-    increments: true;
-    timestamps: true;
     draftAndPublish: false;
   };
   pluginOptions: {
@@ -1682,9 +1807,12 @@ export interface ApiPricePrice extends Schema.CollectionType {
     average: Attribute.Decimal & Attribute.Required;
     volume: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     unit: Attribute.Enumeration<['kg', 'ton', 'liter', 'piece']> &
       Attribute.DefaultTo<'kg'>;
     product: Attribute.Relation<
@@ -1703,9 +1831,12 @@ export interface ApiPricePrice extends Schema.CollectionType {
     type: Attribute.Enumeration<['stockmarket', 'openmarket', 'tmo']> &
       Attribute.DefaultTo<'stockmarket'>;
     efficiency: Attribute.Decimal &
-      Attribute.SetMinMax<{
-        min: 0;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Attribute.DefaultTo<50>;
     ip: Attribute.String &
       Attribute.SetMinMaxLength<{
@@ -1890,10 +2021,13 @@ export interface ApiReactionReaction extends Schema.CollectionType {
     >;
     Value: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: -1;
-        max: 1;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: -1;
+          max: 1;
+        },
+        number
+      >;
     user: Attribute.Relation<
       'api::reaction.reaction',
       'manyToOne',
@@ -2026,9 +2160,12 @@ export interface ApiViewView extends Schema.CollectionType {
       'api::article.article'
     >;
     view: Attribute.Integer &
-      Attribute.SetMinMax<{
-        min: 0;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -2051,6 +2188,8 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::content-releases.release': PluginContentReleasesRelease;
+      'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;

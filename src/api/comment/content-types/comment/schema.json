@@ -26,10 +26,17 @@
       "type": "boolean",
       "default": false
     },
-    "threadOf": {
+    "thread_of": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::comment.comment"
+      "relation": "manyToOne",
+      "target": "api::comment.comment",
+      "inversedBy": "thread_ons"
+    },
+    "thread_ons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "thread_of"
     },
     "like": {
       "type": "integer",
@@ -61,8 +68,15 @@
     },
     "reply_to": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::comment.comment"
+      "relation": "manyToOne",
+      "target": "api::comment.comment",
+      "inversedBy": "reply_froms"
+    },
+    "reply_froms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "reply_to"
     },
     "flag": {
       "type": "integer",

@@ -15,16 +15,16 @@
     },
     "button": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "links.button-link"
     },
     "logo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

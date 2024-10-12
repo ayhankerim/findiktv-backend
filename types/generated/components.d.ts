@@ -142,7 +142,7 @@ export interface LayoutNavbar extends Schema.Component {
   };
   attributes: {
     links: Attribute.Component<'links.link', true>;
-    button: Attribute.Component<'links.button-link'>;
+    button: Attribute.Component<'links.button-link', true>;
     logo: Attribute.Media & Attribute.Required;
   };
 }
@@ -220,14 +220,20 @@ export interface SectionsArticleSection extends Schema.Component {
   attributes: {
     ArticleLimit: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
       Attribute.DefaultTo<1>;
     ArticleOffset: Attribute.Integer &
-      Attribute.SetMinMax<{
-        min: 0;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Attribute.DefaultTo<0>;
     FeaturedOnly: Attribute.Boolean &
       Attribute.Required &
@@ -384,28 +390,40 @@ export interface SectionsSlider extends Schema.Component {
   attributes: {
     SlideLimit: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        max: 20;
-      }> &
+      Attribute.SetMinMax<
+        {
+          max: 20;
+        },
+        number
+      > &
       Attribute.DefaultTo<1>;
     SliderOffset: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Attribute.DefaultTo<0>;
     SideArticleLimit: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 3;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 3;
+        },
+        number
+      > &
       Attribute.DefaultTo<2>;
     SideArticleOffset: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Attribute.DefaultTo<0>;
     FeaturedOnly: Attribute.Boolean &
       Attribute.Required &
